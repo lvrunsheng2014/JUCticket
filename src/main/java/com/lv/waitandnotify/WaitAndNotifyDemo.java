@@ -4,9 +4,10 @@ import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 /*
- * java 8 后的线程的通知和唤醒机制 我们用await和signalAll来做
+ * java 8 后的线程的等待和唤醒机制 我们用await和signalAll来做
  */
 class Data {
+	
 	private Integer num=0;
 	private Lock lock=new ReentrantLock();
 	private Condition co=lock.newCondition();
@@ -102,6 +103,15 @@ public class WaitAndNotifyDemo{
 				e.printStackTrace();
 			}
 		}, "dd").start();
+		new Thread(() -> {
+
+			try {
+				for(int i=1;i<=10;i++)	d.decrement();
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}, "ee").start();
 		
 	}
 }
