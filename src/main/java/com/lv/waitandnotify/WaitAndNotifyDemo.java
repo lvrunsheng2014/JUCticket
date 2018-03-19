@@ -4,7 +4,7 @@ import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 /*
- * java 8 后的线程的等待和唤醒机制 我们用await和signalAll来做
+ * java 8 后的线程的等待和唤醒机制 我们用await和signalAll来做(生产者 消费者模式)
  */
 class Data {
 	
